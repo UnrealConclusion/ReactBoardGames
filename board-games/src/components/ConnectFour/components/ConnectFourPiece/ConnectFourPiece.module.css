@@ -1,0 +1,24 @@
+/* a piece that takes up a space */
+.boardPiece {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    border: solid black;
+}
+
+/* same as background color to create the appearance of an empty space */
+.empty {
+    background-color: var(--bg-color);;
+}
+    
+.player1 {
+    background-color: red;
+}
+    
+.player2 {
+    background-color: yellow;
+}
+  
+.hovered {
+    opacity: 50%;
+}
