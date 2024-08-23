@@ -1,0 +1,46 @@
+/* reminder to make parent container relative */
+.menu {
+    min-height: 100px;
+    min-width: 500px;
+  
+    display: inline-block;
+    position: absolute;
+    left: 100px;
+    top: 250px;
+  
+    border: solid black;
+    border-radius: 10px;
+    
+    background-color: var(--color-secondary);
+
+    animation-name: intro;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}
+  
+.menu p {
+    font-size: 1em;
+}
+  
+.menu button {
+    padding: 8px;
+    width: 45%;
+    height: 45%;
+    color: var(--text-color);
+    background-color: var(--color-secondary);
+    border: solid black;
+    border-radius: 10px;
+}
+  
+.menu button:hover {
+    background-color: var(--off-color);
+}
+
+@keyframes intro {
+	from {
+		transform: scale(0);
+	}
+	to {
+		transform: scale(1);
+	} 
+}

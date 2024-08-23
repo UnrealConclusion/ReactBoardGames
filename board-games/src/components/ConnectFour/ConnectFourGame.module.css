@@ -1,0 +1,48 @@
+.gameWindow {
+  position: relative;
+}
+
+/* uses CSS grid to create a container for the board */
+.board { 
+  min-height: 600px;
+  min-width: 700px;
+  
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 columns */
+  grid-template-rows: repeat(6, 1fr); /* 6 rows */
+}
+  
+/* a single grid of the board */
+.boardSpace {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(45, 102, 209);
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
+/* a piece that takes up a space */
+.boardPiece {
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  border: solid black;
+}
+  
+.empty {
+  background-color: var(--bg-color);;
+}
+  
+.player1 {
+  background-color: red;
+}
+  
+.player2 {
+  background-color: yellow;
+}
+
+.hovered {
+  opacity: 50%;
+}
