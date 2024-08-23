@@ -68,7 +68,7 @@ export default class Board {
     // check if a move allows the player to win
     static isWinMove(board, activePlayer, col) {
       const row = Board.findEmptyRow(board, col);
-      console.log("checking row: " + row + " col: " + col);
+      // console.log("checking row: " + row + " col: " + col);
       return Board.checkHorizontal(board, activePlayer, row, col) || Board.checkVertical(board, activePlayer, row, col) || Board.checkLeftDiagonal(board, activePlayer, row, col) || Board.checkRightDiagonal(board, activePlayer, row, col);
     }
   
