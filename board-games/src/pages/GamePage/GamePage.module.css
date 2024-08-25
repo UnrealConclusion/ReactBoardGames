@@ -1,0 +1,9 @@
+/* main container of the page 
+    - place components in a column 
+*/
+.container {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
