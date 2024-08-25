@@ -1,7 +1,7 @@
 import ConnectFourGame from "./ConnectFour/ConnectFourGame";
-import TicTacToe from "./TicTacToe/TicTacToe";
+import TicTacToeGame from "./TicTacToe/TicTacToeGame";
 
 export {
     ConnectFourGame,
-    TicTacToe
+    TicTacToeGame
 }

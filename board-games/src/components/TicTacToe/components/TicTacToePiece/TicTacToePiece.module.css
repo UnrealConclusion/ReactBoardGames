@@ -1,20 +1,3 @@
-.window {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.rowLine {
-    margin-top: auto;
-    margin-bottom: auto;
-    width: 8px;
-    height: 8px;
-    background: red;
-    position: absolute;
-    left: 0;
-    animation: draw-row-line .6s linear forwards;
-}
-
 @keyframes draw-row-line {
     0% {
         width: 0px;
@@ -33,42 +16,6 @@
     }
 }
 
-.board {
-    --border-styles: 10px var(--off-color) solid;
-    min-height: 600px;
-    min-width: 600px;
-    
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 7 columns */
-    grid-template-rows: repeat(3, 1fr); /* 6 rows */
-}
-
-.boardSpace {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    position: relative;
-}
-
-.boardSpace:nth-child(2), 
-.boardSpace:nth-child(8) {
-    border-left: var(--border-styles); 
-    border-right: var(--border-styles);
-}
-
-.boardSpace:nth-child(4),
-.boardSpace:nth-child(6) {
-    border-top: var(--border-styles);
-    border-bottom: var(--border-styles);
-}
-
-.boardSpace:nth-child(5) {
-    border-left: var(--border-styles);
-    border-right: var(--border-styles);
-    border-top: var(--border-styles);
-    border-bottom: var(--border-styles);
-}
 
 .circle {
     width: 100px;
