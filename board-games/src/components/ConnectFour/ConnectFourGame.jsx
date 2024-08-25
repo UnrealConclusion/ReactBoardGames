@@ -9,8 +9,6 @@ import { ConnectFourBoard, Menu } from "./components";
 export default function ConnectFourGame() {
   const [gameStatus, setGameStatus] = useState(Board.PLAY); // track the stages of the game 
   const [board, setBoard] = useState(Board.setup()); // representation of the current state of the board 
-  const [turn, setTurn] = useState(1); // track number of turns 
-  let activePlayer = turn % 2 ? Board.PLAYER_1 : Board.PLAYER_2; // calculate which player's turn it is 
 
   // reset the game 
   function handlePlayAgain() {
@@ -24,8 +22,6 @@ export default function ConnectFourGame() {
       <ConnectFourBoard
         board={board}
         setBoard={setBoard}
-        activePlayer={activePlayer}
-        setTurn={setTurn}
         gameStatus={gameStatus}
         setGameStatus={setGameStatus}
       />

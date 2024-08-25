@@ -7,8 +7,10 @@ import { useState } from "react";
 /**
  * Component controls the connect four board 
  */
-export default function ConnectFourBoard({board, setBoard, activePlayer, setTurn, gameStatus, setGameStatus}) {
+export default function ConnectFourBoard({board, setBoard, gameStatus, setGameStatus}) {
     const [mousePosition, setMousePosition] =  useState(-1); // track the column that the mouse is hovering over
+    const [turnNumber, setTurnNumber] = useState(1); // track number of turns 
+    let activePlayer = turnNumber % 2 ? Board.PLAYER_1 : Board.PLAYER_2; // calculate which player's turn it is 
   
     // set mouse position to the column number
     function handleMouseEnterCol(col) {
@@ -39,7 +41,7 @@ export default function ConnectFourBoard({board, setBoard, activePlayer, setTurn
   
       if (Board.isBoardFull(newBoard)) setGameStatus(Board.TIE);
   
-      setTurn((i) => i+1);
+      setTurnNumber((i) => i+1);
     }
   
     return (
@@ -47,7 +49,7 @@ export default function ConnectFourBoard({board, setBoard, activePlayer, setTurn
         {board.map((row, rowIndex) => 
           row.map((colValue, colIndex) => 
             <ConnectFourBoardSpace
-              key={colIndex}
+              key={(rowIndex*board[0].length) + colIndex}
               owner={colValue}
               col={colIndex}
               activePlayer={activePlayer}
