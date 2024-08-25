@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import './App.css'
-import ConnectFourGame from './components/ConnectFour/ConnectFourGame';
+import { ConnectFourGame, TicTacToeGame } from './components';
 
 
 function App() {
 
   return (
-    <ConnectFourGame/>
+    <TicTacToeGame/>
   )
 }
 

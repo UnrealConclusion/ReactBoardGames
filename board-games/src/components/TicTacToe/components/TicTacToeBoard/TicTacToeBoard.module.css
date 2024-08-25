@@ -1,0 +1,9 @@
+.board {
+    --border-styles: 10px var(--off-color) solid;
+    min-height: 600px;
+    min-width: 600px;
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 7 columns */
+    grid-template-rows: repeat(3, 1fr); /* 6 rows */
+}

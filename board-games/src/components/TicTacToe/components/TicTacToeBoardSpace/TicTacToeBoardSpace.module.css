@@ -1,0 +1,26 @@
+.boardSpace {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.boardSpace:nth-child(2), 
+.boardSpace:nth-child(8) {
+    border-left: var(--border-styles); 
+    border-right: var(--border-styles);
+}
+
+.boardSpace:nth-child(4),
+.boardSpace:nth-child(6) {
+    border-top: var(--border-styles);
+    border-bottom: var(--border-styles);
+}
+
+.boardSpace:nth-child(5) {
+    border-left: var(--border-styles);
+    border-right: var(--border-styles);
+    border-top: var(--border-styles);
+    border-bottom: var(--border-styles);
+}
