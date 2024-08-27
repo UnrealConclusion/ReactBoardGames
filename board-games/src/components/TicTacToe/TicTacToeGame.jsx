@@ -8,12 +8,10 @@ import { TicTacToeBoard } from "./components";
 
 export default function TicTacToeGame() {
     const [gameStatus, setGameStatus] = useState(GAME_STATUS.NORMAL);
-    const [winCondition, setWinCondition] = useState(null);
     const [board, setBoard] = useState(Board.setup());
 
     function handlePlayAgain() {
         setGameStatus(GAME_STATUS.NORMAL);
-        setWinCondition(null);
         setBoard(Board.setup())
     }
 
@@ -29,8 +27,6 @@ export default function TicTacToeGame() {
                 board={board}
                 setBoard={setBoard}
                 setGameStatus={setGameStatus}
-                winCondition={winCondition}
-                setWinCondition={setWinCondition}
                 gameStatus={gameStatus}
             />
         </div>
