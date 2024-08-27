@@ -1,7 +1,9 @@
-import styles from "./TicTacToeGame.module.css";
 import { useState } from "react";
-import Menu from "../ConnectFour/components/Menu/Menu";
-import { Board, GAME_STATUS } from "./TicTacToe"
+import { GAME_STATUS } from "../../magic_numbers";
+import Menu from "../Menu/Menu";
+import styles from "./TicTacToeGame.module.css";
+
+import { Board } from "./TicTacToe"
 import { TicTacToeBoard } from "./components";
 
 export default function TicTacToeGame() {

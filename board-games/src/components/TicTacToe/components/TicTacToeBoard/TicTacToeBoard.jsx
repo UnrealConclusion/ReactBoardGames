@@ -1,8 +1,10 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
+import { GAME_STATUS } from "../../../../magic_numbers";
+
 import styles from "./TicTacToeBoard.module.css";
 import TicTacToeBoardSpace from "../TicTacToeBoardSpace/TicTacToeBoardSpace";
-import { useState } from "react";
-import { Board, GAME_STATUS } from "../../TicTacToe"
+import { Board} from "../../TicTacToe"
 
 export default function TicTacToeBoard({board, setBoard, gameStatus, setGameStatus}) {
     const [turn, setTurn] = useState(1); // track number of turns 

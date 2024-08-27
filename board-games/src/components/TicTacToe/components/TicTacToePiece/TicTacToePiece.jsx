@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import styles from "./TicTacToePiece.module.css";
+
 import { Board } from "../../TicTacToe"
 
 export default function TicTacToePiece({owner, activePlayer, hovered}) {

@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
+import { GAME_STATUS } from "../../../../magic_numbers";
 import styles from "./ConnectFourBoard.module.css";
+
 import Board from "../../ConnectFour";
 import ConnectFourBoardSpace from "../ConnectFourBoardSpace/ConnectFourBoardSpace";
 import { useState } from "react";
@@ -14,7 +16,7 @@ export default function ConnectFourBoard({board, setBoard, gameStatus, setGameSt
   
     // set mouse position to the column number
     function handleMouseEnterCol(col) {
-      if (gameStatus !== Board.PLAY) {
+      if (gameStatus !== GAME_STATUS.NORMAL) {
         setMousePosition(-1);
         return;
       }
@@ -29,17 +31,17 @@ export default function ConnectFourBoard({board, setBoard, gameStatus, setGameSt
     // handle a new piece being dropped on the board 
     function handleColDrop(col) {
       // game is over 
-      if (gameStatus !== Board.PLAY) return;
+      if (gameStatus !== GAME_STATUS.NORMAL) return;
 
       // make sure column is not already full 
       if (Board.isColFull(board, col)) return;
   
-      if (Board.isWinMove(board, activePlayer, col)) setGameStatus(activePlayer === Board.PLAYER_1 ? Board.PLAYER_1_WIN : Board.PLAYER_2_WIN);
+      if (Board.isWinMove(board, activePlayer, col)) setGameStatus(activePlayer === GAME_STATUS.PLAYER_1_WIN ? GAME_STATUS.PLAYER_1_WIN : GAME_STATUS.PLAYER_2_WIN);
   
       const newBoard = Board.dropPiece(board, activePlayer, col);
       setBoard(newBoard); 
   
-      if (Board.isBoardFull(newBoard)) setGameStatus(Board.TIE);
+      if (Board.isBoardFull(newBoard)) setGameStatus(GAME_STATUS.TIE);
   
       setTurnNumber((i) => i+1);
     }

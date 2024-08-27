@@ -9,12 +9,6 @@ export default class Board {
     static PLAYER_1 = 1;
     static PLAYER_2 = 2;
 
-    // Game Status 
-    static PLAY = 0;
-    static PLAYER_1_WIN = 1;
-    static PLAYER_2_WIN = 2;
-    static TIE = 3;
-
     // initalizes and return a new board 
     static setup() {
       return [

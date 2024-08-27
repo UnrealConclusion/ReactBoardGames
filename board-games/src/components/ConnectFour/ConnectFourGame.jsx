@@ -1,18 +1,21 @@
 import { useState } from "react";
+import { GAME_STATUS } from "../../magic_numbers";
+import Menu from "../Menu/Menu";
 import styles from "./ConnectFourGame.module.css"
 import Board from "./ConnectFour";
-import { ConnectFourBoard, Menu } from "./components";
+import { ConnectFourBoard } from "./components";
+
 
 /**
  * Component controls the game window 
  */
 export default function ConnectFourGame() {
-  const [gameStatus, setGameStatus] = useState(Board.PLAY); // track the stages of the game 
+  const [gameStatus, setGameStatus] = useState(GAME_STATUS.NORMAL); // track the stages of the game 
   const [board, setBoard] = useState(Board.setup()); // representation of the current state of the board 
 
   // reset the game 
   function handlePlayAgain() {
-    setGameStatus(Board.PLAY);
+    setGameStatus(GAME_STATUS.NORMAL);
     setBoard(Board.setup());
   }
 

@@ -1,8 +1,9 @@
-import PropTypes from "prop-types";
-import styles from "./TicTacToeBoardSpace.module.css";
-import TicTacToePiece from "../TicTacToePiece/TicTacToePiece"
 import { useState } from "react";
-import { GAME_STATUS } from "../../TicTacToe";
+import PropTypes from "prop-types";
+import { GAME_STATUS } from "../../../../magic_numbers";
+import styles from "./TicTacToeBoardSpace.module.css";
+
+import TicTacToePiece from "../TicTacToePiece/TicTacToePiece"
 
 export default function TicTacToeBoardSpace({owner, activePlayer, row, col, onDrop, gameStatus}) {
     const [hovered, setHovered] = useState(false);
@@ -35,5 +36,6 @@ TicTacToeBoardSpace.propTypes = {
     activePlayer: PropTypes.number, 
     row: PropTypes.number, 
     col: PropTypes.number, 
-    onDrop: PropTypes.func
+    onDrop: PropTypes.func,
+    gameStatus: PropTypes.number
 }

@@ -1,16 +1,17 @@
 import PropTypes from 'prop-types'
+import { GAME_STATUS } from "../../magic_numbers";
 import styles from "./Menu.module.css"
-import Board from "../../ConnectFour";
 
 /**
  * Menu to display after the game is over
  */
 export default function Menu({gameStatus, onPlayAgain}) {
     let message = "There's a Tie!";
-    if (gameStatus === Board.PLAYER_1_WIN) {
+
+    if (gameStatus === GAME_STATUS.PLAYER_1_WIN) {
       message = "Player 1 Wins!";
     }
-    else if (gameStatus === Board.PLAYER_2_WIN) {
+    else if (gameStatus === GAME_STATUS.PLAYER_2_WIN) {
       message = "Player 2 Wins!";
     }
   

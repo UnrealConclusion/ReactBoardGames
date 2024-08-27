@@ -65,15 +65,6 @@ class Board {
     }
 }
 
-// static class that contains a list of game status 
-class GAME_STATUS {
-    static NORMAL = 0;
-    static PLAYER_1_WIN = 1;
-    static PLAYER_2_WIN = 2;
-    static TIE = 3;
-}
-
 export {
-    Board, 
-    GAME_STATUS
+    Board
 }
