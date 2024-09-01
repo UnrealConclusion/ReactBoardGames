@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { GAME_STATUS } from "../../magic_numbers";
+import { BOARD } from "../../board"
 import Menu from "../Menu/Menu";
 import styles from "./TicTacToeGame.module.css";
 
-import { Board } from "./TicTacToe"
 import { TicTacToeBoard } from "./components";
 
 export default function TicTacToeGame() {
     const [gameStatus, setGameStatus] = useState(GAME_STATUS.NORMAL);
-    const [board, setBoard] = useState(Board.setup());
+    const [board, setBoard] = useState(BOARD.SETUP(3, 3));
 
     function handlePlayAgain() {
         setGameStatus(GAME_STATUS.NORMAL);
-        setBoard(Board.setup())
+        setBoard(BOARD.SETUP(3, 3))
     }
 
     return  (

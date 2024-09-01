@@ -1,19 +1,11 @@
-class Board {
+class TIC_TAC_TOE {
     static EMPTY = 0;
     static PLAYER_1 = 1;
     static PLAYER_2 = 2;
 
-    static setup() {
-        return [
-            [0, 0, 0],
-            [0, 0, 0],
-            [0, 0, 0]
-        ];
-    }
-
     // check if a space is empty
     static isEmpty(board, x, y) {
-        return board[x][y] === Board.EMPTY;
+        return board[x][y] === TIC_TAC_TOE.EMPTY;
     }
 
     static isFull(board) {
@@ -66,5 +58,5 @@ class Board {
 }
 
 export {
-    Board
+    TIC_TAC_TOE
 }

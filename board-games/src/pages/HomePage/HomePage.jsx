@@ -7,8 +7,9 @@ export default function HomePage() {
     return (
         <div className={styles.container}>
             <CardShelf>
-                <Link to="/connect-four"><Card title="Connect Four" image={connectFour}/></Link>
-                <Link to="/tic-tac-toe"><Card title="Tic Tac Toe" image={ticTacToe}/></Link>
+                <Link to="/ReactBoardGames/connect-four"><Card title="Connect Four" image={connectFour}/></Link>
+                <Link to="/ReactBoardGames/tic-tac-toe"><Card title="Tic Tac Toe" image={ticTacToe}/></Link>
+                <Link to="/ReactBoardGames/checkers"><Card title="Checkers"/></Link>
             </CardShelf>
         </div>
     );

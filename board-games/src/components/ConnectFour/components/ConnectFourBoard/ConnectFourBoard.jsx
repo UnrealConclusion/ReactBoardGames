@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
+import { GAME_PIECES } from "../../../../magic_numbers";
 import { GAME_STATUS } from "../../../../magic_numbers";
+import CONNECT_FOUR from "../../ConnectFour";
 import styles from "./ConnectFourBoard.module.css";
 
-import Board from "../../ConnectFour";
 import ConnectFourBoardSpace from "../ConnectFourBoardSpace/ConnectFourBoardSpace";
 import { useState } from "react";
 
@@ -12,8 +13,8 @@ import { useState } from "react";
 export default function ConnectFourBoard({board, setBoard, gameStatus, setGameStatus}) {
     const [mousePosition, setMousePosition] =  useState(-1); // track the column that the mouse is hovering over
     const [turnNumber, setTurnNumber] = useState(1); // track number of turns 
-    let activePlayer = turnNumber % 2 ? Board.PLAYER_1 : Board.PLAYER_2; // calculate which player's turn it is 
-  
+    let activePlayer = turnNumber % 2 ? GAME_PIECES.PLAYER_1 : GAME_PIECES.PLAYER_2; // calculate which player's turn it is 
+
     // set mouse position to the column number
     function handleMouseEnterCol(col) {
       if (gameStatus !== GAME_STATUS.NORMAL) {
@@ -34,14 +35,14 @@ export default function ConnectFourBoard({board, setBoard, gameStatus, setGameSt
       if (gameStatus !== GAME_STATUS.NORMAL) return;
 
       // make sure column is not already full 
-      if (Board.isColFull(board, col)) return;
+      if (CONNECT_FOUR.isColFull(board, col)) return;
   
-      if (Board.isWinMove(board, activePlayer, col)) setGameStatus(activePlayer === GAME_STATUS.PLAYER_1_WIN ? GAME_STATUS.PLAYER_1_WIN : GAME_STATUS.PLAYER_2_WIN);
+      if (CONNECT_FOUR.isWinMove(board, activePlayer, col)) setGameStatus(activePlayer === GAME_PIECES.PLAYER_1 ? GAME_STATUS.PLAYER_1_WIN : GAME_STATUS.PLAYER_2_WIN);
   
-      const newBoard = Board.dropPiece(board, activePlayer, col);
+      const newBoard = CONNECT_FOUR.dropPiece(board, activePlayer, col);
       setBoard(newBoard); 
   
-      if (Board.isBoardFull(newBoard)) setGameStatus(GAME_STATUS.TIE);
+      if (CONNECT_FOUR.isBoardFull(newBoard)) setGameStatus(GAME_STATUS.TIE);
   
       setTurnNumber((i) => i+1);
     }
@@ -59,8 +60,8 @@ export default function ConnectFourBoard({board, setBoard, gameStatus, setGameSt
               onMouseLeave={handleMouseLeaveCol}
               onClick={handleColDrop}
               isHovered={
-                colIndex === mousePosition && colValue === Board.EMPTY
-                && (rowIndex === board.length-1 || (rowIndex < board.length-1 && board[rowIndex+1][colIndex] !== Board.EMPTY))
+                colIndex === mousePosition && colValue === GAME_PIECES.EMPTY
+                && (rowIndex === board.length-1 || (rowIndex < board.length-1 && board[rowIndex+1][colIndex] !== GAME_PIECES.EMPTY))
               }
             />
           )

@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types'
+import { GAME_PIECES } from "../../../../magic_numbers";
 import styles from "./ConnectFourPiece.module.css"
-import Board from "../../ConnectFour";
 
 /**
  * A single piece on the board 
  */
 export default function ConnectFourPiece({owner, activePlayer, isHovered}) {
     let type = styles.empty;
-    if (owner === Board.PLAYER_1 || (isHovered && activePlayer === Board.PLAYER_1)) {
+    if (owner === GAME_PIECES.PLAYER_1 || (isHovered && activePlayer === GAME_PIECES.PLAYER_1)) {
       type = styles.player1;
     }
-    else if (owner === Board.PLAYER_2 || (isHovered && activePlayer === Board.PLAYER_2)) {
+    else if (owner === GAME_PIECES.PLAYER_2 || (isHovered && activePlayer === GAME_PIECES.PLAYER_2)) {
       type= styles.player2;
     }
     return (

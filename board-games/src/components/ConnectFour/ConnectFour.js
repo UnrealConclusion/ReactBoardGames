@@ -1,31 +1,15 @@
-/**
- * static class representing a connect four board 
- * - used to group together functions and variables related to the connect four board
- * - handles the logic of the game behind the scenes 
- */
-export default class Board {
-    // Pieces 
-    static EMPTY = 0;
-    static PLAYER_1 = 1;
-    static PLAYER_2 = 2;
+import { GAME_PIECES } from "../../magic_numbers";
 
-    // initalizes and return a new board 
-    static setup() {
-      return [
-        [0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0]
-      ];
-    }
+/**
+ * static class used to group together functions for the connect four game logic 
+ */
+export default class CONNECT_FOUR {
   
     // drop a piece on the board and return it on a new board
     static dropPiece(board, activePlayer, col) {
       return board.map((row, rowIndex) => 
         row.map((colValue, colIndex) => {
-          if (colIndex === col && colValue === Board.EMPTY && (rowIndex === board.length-1 || (rowIndex < board.length-1 && board[rowIndex+1][colIndex] !== Board.EMPTY))) {
+          if (colIndex === col && colValue === GAME_PIECES.EMPTY && (rowIndex === board.length-1 || (rowIndex < board.length-1 && board[rowIndex+1][colIndex] !== GAME_PIECES.EMPTY))) {
             return activePlayer;
           }
           else {
@@ -37,7 +21,7 @@ export default class Board {
 
     // check if there is space in a column to add a piece
     static isColFull(board, col) {
-      if (board[0][col] !== Board.EMPTY){
+      if (board[0][col] !== GAME_PIECES.EMPTY){
         return true;
       }
       return false;
@@ -46,7 +30,7 @@ export default class Board {
     // check if the board is full
     static isBoardFull(board) {
       for (let i=0; i<board[0].length; i++) {
-        if (!Board.isColFull(board, i)) return false
+        if (!CONNECT_FOUR.isColFull(board, i)) return false
       }
       return true;
     }
@@ -55,15 +39,15 @@ export default class Board {
     // returns undefined if there is no empty row
     static findEmptyRow(board, col) {
       for (let i=board.length-1; i>=0; i--) {
-        if (board[i][col] === Board.EMPTY) return i;
+        if (board[i][col] === GAME_PIECES.EMPTY) return i;
       }
     }
   
     // check if a move allows the player to win
     static isWinMove(board, activePlayer, col) {
-      const row = Board.findEmptyRow(board, col);
+      const row = CONNECT_FOUR.findEmptyRow(board, col);
       // console.log("checking row: " + row + " col: " + col);
-      return Board.checkHorizontal(board, activePlayer, row, col) || Board.checkVertical(board, activePlayer, row, col) || Board.checkLeftDiagonal(board, activePlayer, row, col) || Board.checkRightDiagonal(board, activePlayer, row, col);
+      return CONNECT_FOUR.checkHorizontal(board, activePlayer, row, col) || CONNECT_FOUR.checkVertical(board, activePlayer, row, col) || CONNECT_FOUR.checkLeftDiagonal(board, activePlayer, row, col) || CONNECT_FOUR.checkRightDiagonal(board, activePlayer, row, col);
     }
   
     // check the horizontal pieces 
