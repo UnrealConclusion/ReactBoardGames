@@ -8,9 +8,5 @@ export default function useTurnCounter(initialCount) {
         setTurnNumber((currentTurnNumber) => currentTurnNumber+1);
     }
 
-    function resetCounter() {
-        setTurnNumber(0);
-    }
-
-    return [turnNumber, incrementTurn, resetCounter]
+    return [turnNumber, incrementTurn]
 }

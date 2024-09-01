@@ -4,6 +4,8 @@ import styles from "./Menu.module.css"
 
 /**
  * Menu to display after the game is over
+ * - display a message based on the game status 
+ * - takes a callback function to reset the game 
  */
 export default function Menu({gameStatus, onPlayAgain}) {
     let message = "There's a Tie!";
@@ -24,6 +26,6 @@ export default function Menu({gameStatus, onPlayAgain}) {
 }
 
 Menu.propTypes = {
-    gameStatus: PropTypes.number, // the status of the game 
-    onPlayAgain: PropTypes.func // onClick handler for the play again button
+    gameStatus: PropTypes.number.isRequired, // the status of the game 
+    onPlayAgain: PropTypes.func.isRequired // onClick handler for the play again button
 }
