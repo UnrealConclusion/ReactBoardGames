@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 
 /**
  * Componenet renders a different style depending on which player owns the piece 
+ * - displayes a piece if the mouse is currently hovering over the column
  */
 export default function ConnectFourPiece({owner, activePlayer, isHovered}) {
     let type = styles.empty;
@@ -19,7 +20,7 @@ export default function ConnectFourPiece({owner, activePlayer, isHovered}) {
 }
   
 ConnectFourPiece.propTypes = {
-    owner: PropTypes.number,
-    activePlayer: PropTypes.number,
-    isHovered: PropTypes.bool
+    owner: PropTypes.number, // the player who owns this piece
+    activePlayer: PropTypes.number, // the player whose turn it currently is
+    isHovered: PropTypes.bool // is the mouse hovering over this board space right now
 }

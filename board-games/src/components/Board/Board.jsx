@@ -7,7 +7,7 @@ import PropTypes from "prop-types"
  */
 export default function Board({onMouseLeave=()=>{}, children, className=""}) {
     return (
-      <div className={className} onMouseLeave={() => onMouseLeave()}>
+      <div className={className} onMouseLeave={onMouseLeave}>
         {children}
       </div>
     );

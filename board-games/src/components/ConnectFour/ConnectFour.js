@@ -1,7 +1,7 @@
 import { GAME_PIECES } from "../../magic_numbers";
 
 /**
- * static class used to group together functions for the connect four game logic 
+ * static class used to group together functions and variables for the connect four game logic 
  */
 export default class CONNECT_FOUR {
     static NUM_ROWS = 6;

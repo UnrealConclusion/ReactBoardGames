@@ -1,21 +1,25 @@
-class TIC_TAC_TOE {
-    static EMPTY = 0;
-    static PLAYER_1 = 1;
-    static PLAYER_2 = 2;
+import { GAME_PIECES } from "../../magic_numbers";
+
+/**
+ * static class used to group together functions and variables for the tictactoe game logic 
+ */
+export default class TIC_TAC_TOE {
+    static NUM_ROWS = 3;
+    static NUM_COLS = 3;
 
     // check if a space is empty
-    static isEmpty(board, x, y) {
-        return board[x][y] === TIC_TAC_TOE.EMPTY;
+    static IS_EMPTY(board, x, y) {
+        return board[x][y] === GAME_PIECES.EMPTY;
     }
 
-    static isFull(board) {
+    static IS_FULL(board) {
         return board.every((row) => 
-            row.every((colValue) => colValue !== this.EMPTY)
+            row.every((colValue) => colValue !== GAME_PIECES.EMPTY)
         );
     }
 
     // return a new board with a new piece placed on it 
-    static placePiece(board, activePlayer, x, y) {
+    static PLACE_PIECE(board, activePlayer, x, y) {
         return board.map((row, rowIndex) => 
             row.map((colValue, colIndex) => {
                 if (rowIndex === x && colIndex === y) {
@@ -30,7 +34,7 @@ class TIC_TAC_TOE {
     
     // check for win conditions on the board 
     // returns null if there is no win condition 
-    static isWinner(board, activePlayer) {
+    static IS_WINNER(board, activePlayer) {
         // check every row
         if ((board[0][0] === activePlayer && board[0][1] === activePlayer && board[0][2] === activePlayer)
             || (board[1][0] === activePlayer && board[1][1] === activePlayer && board[1][2] === activePlayer)
@@ -55,8 +59,4 @@ class TIC_TAC_TOE {
             return false;
         }
     }
-}
-
-export {
-    TIC_TAC_TOE
 }

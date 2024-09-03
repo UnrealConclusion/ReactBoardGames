@@ -1,19 +1,19 @@
 import { useState } from "react";
 import { GAME_STATUS, GAME_PIECES } from "../../magic_numbers";
-import { BOARD } from "../../board"
+import { BOARD } from "../../board";
 import CONNECT_FOUR from "./ConnectFour";
 import Menu from "../Menu/Menu";
-import {Board, BoardSpace} from "../Board";
+import { Board, BoardSpace } from "../Board";
 import ConnectFourPiece from "./ConnectFourPiece";
 import { useTurnCounter } from "../../hooks";
-import styles from "./ConnectFourGame.module.css"
+import styles from "./ConnectFourGame.module.css";
 
 /**
  * Connect Four Game Component 
  */
 export default function ConnectFourGame() {
   const [gameStatus, setGameStatus] = useState(GAME_STATUS.NORMAL);
-  const [board, setBoard] = useState(BOARD.SETUP(6, 7)); 
+  const [board, setBoard] = useState(BOARD.SETUP(CONNECT_FOUR.NUM_ROWS, CONNECT_FOUR.NUM_COLS)); 
   const [turnNumber, incrementTurn] = useTurnCounter(1);
   const activePlayer = turnNumber % 2 ? GAME_PIECES.PLAYER_1 : GAME_PIECES.PLAYER_2;
   const [mousePosition, setMousePosition] =  useState({row: -1, col: -1}); 
@@ -21,7 +21,7 @@ export default function ConnectFourGame() {
   // reset the game 
   function handlePlayAgain() {
     setGameStatus(GAME_STATUS.NORMAL);
-    setBoard(BOARD.SETUP(6, 7));
+    setBoard(BOARD.SETUP(CONNECT_FOUR.NUM_ROWS, CONNECT_FOUR.NUM_COLS));
   }
 
   // update the board space that the mouse is in
