@@ -1,9 +1,10 @@
-import PropTypes from 'prop-types'
-import { GAME_PIECES } from "../../../../magic_numbers";
+import { GAME_PIECES } from "../../magic_numbers";
 import styles from "./ConnectFourPiece.module.css"
+import PropTypes from "prop-types"
 
 /**
- * A single piece on the board 
+ * Componenet renders a different style depending on which player owns the piece 
+ * - displayes a piece if the mouse is currently hovering over the column
  */
 export default function ConnectFourPiece({owner, activePlayer, isHovered}) {
     let type = styles.empty;
@@ -17,9 +18,9 @@ export default function ConnectFourPiece({owner, activePlayer, isHovered}) {
       <div className={`${styles.boardPiece} ${type} ${isHovered ? styles.hovered : ""}`}/>
     );
 }
-
+  
 ConnectFourPiece.propTypes = {
-  owner: PropTypes.number, // the player's whose piece is on the board
-  activePlayer: PropTypes.number, // whose turn it is 
-  isHovered: PropTypes.bool // is the column being hovered over 
+    owner: PropTypes.number, // the player who owns this piece
+    activePlayer: PropTypes.number, // the player whose turn it currently is
+    isHovered: PropTypes.bool // is the mouse hovering over this board space right now
 }
