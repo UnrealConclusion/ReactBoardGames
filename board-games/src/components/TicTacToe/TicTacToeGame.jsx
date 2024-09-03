@@ -49,7 +49,7 @@ export default function TicTacToeGame() {
     }
 
     return  (
-        <div className={styles.window}>
+        <div className={styles.gameWindow}>
             {gameStatus !== GAME_STATUS.NORMAL && <Menu gameStatus={gameStatus} onPlayAgain={handlePlayAgain}/>}
             <Board className={styles.board} onMouseLeave={handleMouseLeave}>
                 {board.map((rows, rowIndex) => rows.map((colValue, colIndex) => 

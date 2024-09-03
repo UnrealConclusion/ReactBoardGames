@@ -1,9 +1,0 @@
-/* uses CSS grid to create a container for the board */
-.board { 
-    height: 600px;
-    width: 700px;
-    background-color: aliceblue;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr); /* 7 columns */
-    grid-template-rows: repeat(6, 1fr); /* 6 rows */
-}
