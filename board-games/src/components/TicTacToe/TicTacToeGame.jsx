@@ -34,7 +34,7 @@ export default function TicTacToeGame() {
     function handleDraw(row, col) {
         if (gameStatus !== GAME_STATUS.NORMAL) return;  // game is over 
         if (!TIC_TAC_TOE.IS_EMPTY(board, row, col)) return; // space is occupy
-        console.log("clicked")
+        
         // draw the piece, update the board, and increment the turn 
         const newBoard = TIC_TAC_TOE.PLACE_PIECE(board, activePlayer, row, col);
         setBoard(newBoard);

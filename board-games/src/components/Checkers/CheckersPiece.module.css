@@ -1,0 +1,24 @@
+.player1 {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    border: solid black;
+    position: absolute;
+    clip-path: circle(50%);
+    background-color: rgb(47, 46, 46);
+}
+
+
+.player2 {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    clip-path: circle(50%);
+    border: solid black;
+
+    background-color: rgb(177, 29, 29);
+}
+
+.draggable {
+    cursor: grab;
+}
